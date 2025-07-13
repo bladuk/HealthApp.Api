@@ -15,6 +15,7 @@ public sealed class Program
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddControllers();
 
         builder.Services.AddDbContext<HealthAppDbContext>(options =>
         {
