@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthApp.Api", "HealthApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthApp.Domain", "HealthApp.Domain\HealthApp.Domain.csproj", "{19878124-C8EF-463B-8550-23B2319A8378}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthApp.Infrastructure", "HealthApp.Infrastructure\HealthApp.Infrastructure.csproj", "{851982C9-0730-421B-BB72-64D383D5C4EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{19878124-C8EF-463B-8550-23B2319A8378}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19878124-C8EF-463B-8550-23B2319A8378}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19878124-C8EF-463B-8550-23B2319A8378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851982C9-0730-421B-BB72-64D383D5C4EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851982C9-0730-421B-BB72-64D383D5C4EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851982C9-0730-421B-BB72-64D383D5C4EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851982C9-0730-421B-BB72-64D383D5C4EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

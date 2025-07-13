@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using HealthApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace HealthApp.Domain.Context;
+namespace HealthApp.Infrastructure.Persistence;
 
 public partial class HealthAppDbContext : DbContext
 {

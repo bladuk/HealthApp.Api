@@ -1,4 +1,6 @@
-using HealthApp.Domain.Context;
+using HealthApp.Infrastructure.Interfaces;
+using HealthApp.Infrastructure.Persistence;
+using HealthApp.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace HealthApp.Api;
@@ -16,6 +18,8 @@ public sealed class Program
         {
             options.UseNpgsql(builder.Configuration.GetConnectionString(nameof(HealthAppDbContext)));
         });
+
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         var app = builder.Build();
 
