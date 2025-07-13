@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthApp.Api", "HealthApp.Api\HealthApp.Api.csproj", "{0D73A0E7-9F83-41D8-9EF5-1A9D05C5EF18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthApp.Domain", "HealthApp.Domain\HealthApp.Domain.csproj", "{19878124-C8EF-463B-8550-23B2319A8378}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D73A0E7-9F83-41D8-9EF5-1A9D05C5EF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D73A0E7-9F83-41D8-9EF5-1A9D05C5EF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D73A0E7-9F83-41D8-9EF5-1A9D05C5EF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D73A0E7-9F83-41D8-9EF5-1A9D05C5EF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19878124-C8EF-463B-8550-23B2319A8378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19878124-C8EF-463B-8550-23B2319A8378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19878124-C8EF-463B-8550-23B2319A8378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19878124-C8EF-463B-8550-23B2319A8378}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
