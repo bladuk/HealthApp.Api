@@ -1,3 +1,5 @@
+using HealthApp.Application.Interfaces;
+using HealthApp.Application.Services;
 using HealthApp.Infrastructure.Interfaces;
 using HealthApp.Infrastructure.Persistence;
 using HealthApp.Infrastructure.Repositories;
@@ -20,6 +22,7 @@ public sealed class Program
         });
 
         builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+        builder.Services.AddScoped<IAssessmentService, AssessmentService>();
 
         var app = builder.Build();
 

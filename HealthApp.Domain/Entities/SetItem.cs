@@ -17,5 +17,7 @@ public partial class SetItem
 
     public DateTime CreatedAt { get; set; }
 
+    public virtual ICollection<ItemNutrient> ItemNutrients { get; set; } = new List<ItemNutrient>();
+
     public virtual Set Set { get; set; } = null!;
 }

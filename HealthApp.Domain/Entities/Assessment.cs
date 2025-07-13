@@ -9,11 +9,13 @@ public partial class Assessment
 
     public int UserId { get; set; }
 
-    public DateTime? CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; }
+
+    public Guid? RecommendedSetId { get; set; }
 
     public virtual ICollection<NutrientIntake> NutrientIntakes { get; set; } = new List<NutrientIntake>();
 
-    public virtual ICollection<SetAssessment> SetAssessments { get; set; } = new List<SetAssessment>();
+    public virtual Set? RecommendedSet { get; set; }
 
     public virtual User User { get; set; } = null!;
 }

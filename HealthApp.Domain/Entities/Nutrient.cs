@@ -17,5 +17,7 @@ public partial class Nutrient
 
     public DateTime CreatedAt { get; set; }
 
+    public virtual ICollection<ItemNutrient> ItemNutrients { get; set; } = new List<ItemNutrient>();
+
     public virtual ICollection<NutrientIntake> NutrientIntakes { get; set; } = new List<NutrientIntake>();
 }

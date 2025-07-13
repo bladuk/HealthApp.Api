@@ -11,7 +11,7 @@ public partial class Set
 
     public DateTime CreatedAt { get; set; }
 
-    public virtual ICollection<SetAssessment> SetAssessments { get; set; } = new List<SetAssessment>();
+    public virtual ICollection<Assessment> Assessments { get; set; } = new List<Assessment>();
 
     public virtual ICollection<SetItem> SetItems { get; set; } = new List<SetItem>();
 }

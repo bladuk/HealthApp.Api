@@ -18,13 +18,13 @@ public partial class HealthAppDbContext : DbContext
 
     public virtual DbSet<Assessment> Assessments { get; set; }
 
+    public virtual DbSet<ItemNutrient> ItemNutrients { get; set; }
+
     public virtual DbSet<Nutrient> Nutrients { get; set; }
 
     public virtual DbSet<NutrientIntake> NutrientIntakes { get; set; }
 
     public virtual DbSet<Set> Sets { get; set; }
-
-    public virtual DbSet<SetAssessment> SetAssessments { get; set; }
 
     public virtual DbSet<SetItem> SetItems { get; set; }
 
@@ -44,12 +44,41 @@ public partial class HealthAppDbContext : DbContext
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("now()")
                 .HasColumnName("created_at");
+            entity.Property(e => e.RecommendedSetId).HasColumnName("recommended_set_id");
             entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.RecommendedSet).WithMany(p => p.Assessments)
+                .HasForeignKey(d => d.RecommendedSetId)
+                .HasConstraintName("recommended_set_id");
 
             entity.HasOne(d => d.User).WithMany(p => p.Assessments)
                 .HasForeignKey(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("user_id");
+        });
+
+        modelBuilder.Entity<ItemNutrient>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("ItemNutrient_pkey");
+
+            entity.ToTable("ItemNutrient");
+
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("gen_random_uuid()")
+                .HasColumnName("id");
+            entity.Property(e => e.Amount).HasColumnName("amount");
+            entity.Property(e => e.ItemId).HasColumnName("item_id");
+            entity.Property(e => e.NutrientId).HasColumnName("nutrient_id");
+
+            entity.HasOne(d => d.Item).WithMany(p => p.ItemNutrients)
+                .HasForeignKey(d => d.ItemId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("item_id");
+
+            entity.HasOne(d => d.Nutrient).WithMany(p => p.ItemNutrients)
+                .HasForeignKey(d => d.NutrientId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("nutrient_id");
         });
 
         modelBuilder.Entity<Nutrient>(entity =>
@@ -111,29 +140,6 @@ public partial class HealthAppDbContext : DbContext
                 .HasDefaultValueSql("now()")
                 .HasColumnName("created_at");
             entity.Property(e => e.Price).HasColumnName("price");
-        });
-
-        modelBuilder.Entity<SetAssessment>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("SetAssessment_pkey");
-
-            entity.ToTable("SetAssessment");
-
-            entity.Property(e => e.Id)
-                .HasDefaultValueSql("gen_random_uuid()")
-                .HasColumnName("id");
-            entity.Property(e => e.AssessmentId).HasColumnName("assessment_id");
-            entity.Property(e => e.SetId).HasColumnName("set_id");
-
-            entity.HasOne(d => d.Assessment).WithMany(p => p.SetAssessments)
-                .HasForeignKey(d => d.AssessmentId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("assessment_id");
-
-            entity.HasOne(d => d.Set).WithMany(p => p.SetAssessments)
-                .HasForeignKey(d => d.SetId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("set_id");
         });
 
         modelBuilder.Entity<SetItem>(entity =>

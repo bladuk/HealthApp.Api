@@ -10,13 +10,13 @@ public sealed class AssessmentRepository(HealthAppDbContext dbContext) : IAssess
     public async ValueTask<Assessment?> GetByIdAsync(Guid id, CancellationToken token = default)
         => await dbContext.Assessments
             .Include(a => a.NutrientIntakes).ThenInclude(i => i.Nutrient)
-            .Include(a => a.SetAssessments).ThenInclude(sa => sa.Set).ThenInclude(s => s.SetItems)
+            .Include(a => a.RecommendedSet).ThenInclude(s => s.SetItems)
             .FirstOrDefaultAsync(a => a.Id == id, token);
     
     public async Task<Assessment?> GetLatestAsync(int userId, CancellationToken ct = default)
         => await dbContext.Assessments
             .Include(a => a.NutrientIntakes).ThenInclude(i => i.Nutrient)
-            .Include(a => a.SetAssessments).ThenInclude(sa => sa.Set).ThenInclude(s => s.SetItems)
+            .Include(a => a.RecommendedSet).ThenInclude(s => s.SetItems)
             .Where(a => a.UserId == userId)
             .OrderByDescending(a => a.CreatedAt)
             .FirstOrDefaultAsync(ct);
